@@ -1,7 +1,6 @@
 {
   "name": "lesson4",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,5 +28,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Redicolossimo/dann-tasks-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Redicolossimo/dann-tasks-app/issues"
+  },
+  "homepage": "https://github.com/Redicolossimo/dann-tasks-app#readme",
+  "description": ""
 }

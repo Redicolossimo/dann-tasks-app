@@ -15,7 +15,7 @@ const passport = require('./auth')
 
 const app = express()
 
-mongoose.connect('mongodb://localhost:27016/tasks2', {
+mongoose.connect('mongodb+srv://tasks:8ybnhN7zc4aqM9Z@cluster0.kmqcj.mongodb.net/tasks?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -200,5 +200,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(4000, () => {
-    console.log('http://localhost:4000')
+    console.log('https://dann-tasks-app.herokuapp.com:4000')
 })
