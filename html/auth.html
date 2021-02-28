@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body>
+    <form class="container mt-5 w-50">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="very secret password">
+        </div>
+        <div>
+            <input type="button" value="Войти" id="btn-send">
+        </div>
+    </form>
+
+    <script>
+        const email = document.querySelector('#email');
+        const password = document.querySelector('#password');
+        const btnSend = document.querySelector('#btn-send');
+        btnSend.classList.add('btn', 'btn-dark', 'mt-3');
+
+        btnSend.addEventListener('click', (event) => {
+            localStorage.removeItem('token');
+
+            event.preventDefault();
+            fetch('/auth', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email.value,
+                    password: password.value,
+                }),
+            })
+            .then((response) => {
+                if(response.status !== 200){
+                    //Подсветка поля
+                    return {token: null};
+                }
+
+                return response.json();
+            })
+            .then((response) => {
+                if(response.token){
+                    const {token, ...user} = response;
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('user', JSON.stringify(user));
+
+                    window.location = '/';
+                }
+            })
+        })
+    </script>
+</body>
+</html>

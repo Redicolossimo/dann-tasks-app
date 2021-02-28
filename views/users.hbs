@@ -1,0 +1,8 @@
+<div>
+    <h2>Users!</h2>
+    <ul>
+        {{#each users}}
+        <li><a href="/users/{{@key}}">{{this.username}}</a></li>
+        {{/each}}
+    </ul>
+</div>

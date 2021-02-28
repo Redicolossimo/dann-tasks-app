@@ -1,0 +1,24 @@
+<a href="/logout">Выход</a>
+<form method="POST" action="/tasks">
+    <input type="text" name="title" placeholder="Введите название задачи">
+    <input type="submit" value="Создать">
+</form>
+<hr>
+<ul>
+    {{#each tasks}}
+    <li>
+        {{#if this.completed}}<b>[*]</b>{{/if}} <a href="/tasks/{{this._id}}">{{this.title}}</a>
+
+        {{#unless this.completed}}
+        <form method="POST" action="/tasks/complete">
+            <input type="hidden" value="{{this._id}}" name="id">
+            <input type="submit" value="Выполнено">
+        </form>
+        {{/unless}}
+        <form method="POST" action="/tasks/remove">
+            <input type="hidden" value="{{this._id}}" name="id">
+            <input type="submit" value="Удалить">
+        </form>
+    </li>
+    {{/each}}
+</ul>

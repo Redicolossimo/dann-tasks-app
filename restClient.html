@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        fetch('http://localhost:4000/tasks', {
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJUZXN0MTAwIiwicm9sZSI6ImFkbWluIiwiX2lkIjoiNWZhMDUxYTk0YzEyMzUyYTdiZjA4MGNhIiwiZW1haWwiOiIxMEAxMC5ydSIsIl9fdiI6MCwiaWF0IjoxNjA0MzQyMjE2fQ.VcHDGq58pkKkf4ta2TxtXxD6-aT0PIkjIKDJJcGIXqY'
+            },
+        })
+        .then((response) => response.json())
+        .then((tasks) => {console.log(tasks)});
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
