@@ -8,7 +8,9 @@ const jwt = require('jsonwebtoken')
 const http = require('http')
 const socketIO = require('socket.io')
 
-mongoose.connect('mongodb+srv://tasks:8ybnhN7zc4aqM9Z@cluster0.kmqcj.mongodb.net/tasks?retryWrites=true&w=majority', {
+const PORT = process.env.PORT || 4000
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27016/tasks2',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -221,6 +223,6 @@ app.get('*', (req, res) => {
     res.status(404).render('error')
 })
 
-server.listen( () => {
-    console.log('https://dann-tasks-app.herokuapp.com')
+server.listen(PORT, () => {
+    console.log('https://dann-tasks-app.herokuapp.com:PORT')
 })
