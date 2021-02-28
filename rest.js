@@ -221,6 +221,6 @@ app.get('*', (req, res) => {
     res.status(404).render('error')
 })
 
-server.listen(4000, () => {
-    console.log('https://dann-tasks-app.herokuapp.com:4000')
+server.listen( () => {
+    console.log('https://dann-tasks-app.herokuapp.com')
 })
